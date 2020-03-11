@@ -80,7 +80,7 @@
 						<div class="col-md-12 col-md-offset-0">
 							<div class="animate-box">
 								<h2>Controller Design</h2>
-								<p>It's been a long road but we've finally made it!</p>
+								<!-- <p></p> -->
 								<!-- <p><a href="gallery.html" class="btn btn-primary btn-lg btn-custom">Get premium</a></p> -->
 							</div>
 						</div>
@@ -89,7 +89,7 @@
 			</div>
 		</section>
 		 
-		<!-- PUT VIDEO HERE WHEN WE'RE DONE -->
+		<!-- PUT VIDEO HERE WHEN WE'RE DONE
 		<div class="colorlib-intro">
 			<div class="container">
 				<div class="row">
@@ -104,32 +104,55 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="colorlib-work-featured colorlib-bg-white">
 			<div class="container">
 				<div class="row mobile-wrap">
-					<div class="col-md-5 animate-box">
-						<div class="mobile-img" style="background-image: url(images/scoot_undressed.jpg);"></div>
+					<div class="col-md-4 col-md-push-8 animate-box">
+						<img src='images/controller_equation.png' style="max-width:100%;
+						max-height:100%; padding-top: 40%;">
 					</div>
-					<div class="col-md-7 animate-box">
+					<div class="col-md-8 col-md-pull-4 animate-box">
 						<div class="desc">
-							<h2>A final shot of the insides</h2>
-							<p>This image features the mechanical housing the protects the electronics and sensing components of the scooter</p>
+							<p>
+								The controllers have been designed! The scooter uses a two axis control system, incorporating both a lateral and longitudinal controller. The lateral controller controls the orientation of the scooter, using the steering servo. The longitudinal controller handles setting the speed of the scooter, using the rear wheel. Both controllers use a PI controller scheme which generates controllers of the following form:								
+							</p>
+							<p>
+								Where u is your control signal (servo position or motor voltage) and e is the error term between your reference command (desired heading/desired speed) and your current output (current heading/current speed). Using these controllers has allowed us to create a demo of how the system will work in simulation.
+							</p>
 						</div>
 					</div>
 				</div>
 				<div class="row mobile-wrap">
-					<div class="col-md-5 col-md-push-7 animate-box">
-						<div class="mobile-img" style="background-image: url(images/scoot_dressed.jpg);"></div>
+					<div class="col-md-6 animate-box">
+						<img src="images/controller_simulation.png" style="max-width:100%;
+						max-height:100%; text-align: center;">
 					</div>
-					<div class="col-md-7 col-md-pull-5 animate-box">
+					<div class="col-md-6 animate-box">
 						<div class="desc">
-							<h2>A final shot of the exterior</h2>
-							<p> This image features the mechanical housing the protects the electronics and sensing components of the scooter</p>
+							<p>
+								Using these controllers has allowed us to create a demo of how the system will work in simulation. This image shows the scooter returning to the point at the bottom of the frame, after having started pointed away. The path it has taken to get there can be seen in red. 
+							</p>
 						</div>
 					</div>
 				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-6 col-md-push-6 animate-box">
+						<img src='images/controller_cross_track.png' style="max-width:100%;
+						max-height:100%;">
+					</div>
+					<div class="col-md-6 col-md-pull-6 animate-box">
+						<div class="desc">
+							<p>
+								The longitudinal controller follows the above scheme exactly, and is quite simple. However, the lateral controller has a bit more complexity to it. Instead of just penalizing heading error (error between desired and current heading), I also implemented a cross track error term. Cross track error is defined as the perpendicular distance from a line to the scooter. For the straight line path following that the scooter requires in teleoperation mode, this term is necessary. It makes sure that the scooter will return to the line, whereas a normal heading controller would allow the scooter to drive parallel to the line.							</p>
+							<p>
+								The image to the right explains the cross track calculation, and how it affects the lateral controller's output. 							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
 
 		<footer id="colorlib-footer">
 			<div class="container">
@@ -201,7 +224,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</div>
 			</div>
 		</footer>
-	</div>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
