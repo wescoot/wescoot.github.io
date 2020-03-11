@@ -122,11 +122,11 @@
 					</div>
 				</div>
 				<div class="row mobile-wrap">
-					<div class="col-md-5 col-md-push-7 animate-box">
+					<div class="col-md-5 animate-box">
 						<img src='images/matt_blog_2.png'>
 						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
 					</div>
-					<div class="col-md-7 col-md-pull-5 animate-box">
+					<div class="col-md-7 animate-box">
 						<div class="desc">
 							<p>To follow the path in the image, we need to detect the edges of the path so that the scooter knows to stay within those edges. Ideally, we want to find two lines representing the edges of the sidewalk, which look like this:</p>
 						</div>
@@ -151,11 +151,11 @@
 					</div>
 				</div>
 				<div class="row mobile-wrap">
-					<div class="col-md-5 col-md-push-7 animate-box">
+					<div class="col-md-5 animate-box">
 						<img src='images/matt_blog_canny.png'>
 						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
 					</div>
-					<div class="col-md-7 col-md-pull-5 animate-box">
+					<div class="col-md-7 animate-box">
 						<div class="desc">
 							<p>
 								After filtering, the next step is to find the pixels which correspond to edges in the image. We use an algorithm known as Canny edge detection for this step. After applying edge detection, we’re left with something like this
@@ -176,11 +176,11 @@
 					</div>
 				</div>
 				<div class="row mobile-wrap">
-					<div class="col-md-5 col-md-push-7 animate-box">
+					<div class="col-md-5 animate-box">
 						<img src='images/matt_blog_hough.png'>
 						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
 					</div>
-					<div class="col-md-7 col-md-pull-5 animate-box">
+					<div class="col-md-7 animate-box">
 						<div class="desc">
 							<p>
 								Now that we have some filtered edges, we need to find which of these pixels correspond to lines using Hough transforms. This gives us a list of line segments extracted from the edge pixel image:						
