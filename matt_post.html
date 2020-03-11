@@ -80,7 +80,7 @@
 						<div class="col-md-12 col-md-offset-0">
 							<div class="animate-box">
 								<h2>Lane Detection</h2>
-								<p>It's been a long road but we've finally made it!</p>
+								<p>Teaching a scooter how to see</p>
 								<!-- <p><a href="gallery.html" class="btn btn-primary btn-lg btn-custom">Get premium</a></p> -->
 							</div>
 						</div>
@@ -89,7 +89,7 @@
 			</div>
 		</section>
 		 
-		<!-- PUT VIDEO HERE WHEN WE'RE DONE -->
+		<!-- PUT VIDEO HERE WHEN WE'RE DONE
 		<div class="colorlib-intro">
 			<div class="container">
 				<div class="row">
@@ -104,29 +104,100 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="colorlib-work-featured colorlib-bg-white">
 			<div class="container">
 				<div class="row mobile-wrap">
-					<div class="col-md-5 animate-box">
-						<div class="mobile-img" style="background-image: url(images/scoot_undressed.jpg);"></div>
-					</div>
+					<!-- <div class="col-md-5 animate-box">
+						--->
+						<img src='images/matt_blog_1.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					<!-- </div> -->
 					<div class="col-md-7 animate-box">
 						<div class="desc">
-							<h2>A final shot of the insides</h2>
-							<p>This image features the mechanical housing the protects the electronics and sensing components of the scooter</p>
+							<!-- <h2>The Challenge of Lane</h2> -->
+							<p>Following a sidewalk is easy for a human, we know that we simply have to walk between the two edges of the path to avoid getting our feet muddy. For our scooter however, this process is much more involved. The scooter receives video input from the camera mounted on the steering column. An image from the scooter’s camera on a typical path looks like this:</p>
 						</div>
 					</div>
 				</div>
 				<div class="row mobile-wrap">
 					<div class="col-md-5 col-md-push-7 animate-box">
-						<div class="mobile-img" style="background-image: url(images/scoot_dressed.jpg);"></div>
+						<img src='images/matt_blog_2.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
 					</div>
 					<div class="col-md-7 col-md-pull-5 animate-box">
 						<div class="desc">
-							<h2>A final shot of the exterior</h2>
-							<p> This image features the mechanical housing the protects the electronics and sensing components of the scooter</p>
+							<p>To follow the path in the image, we need to detect the edges of the path so that the scooter knows to stay within those edges. Ideally, we want to find two lines representing the edges of the sidewalk, which look like this:</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 col-md-push-7 animate-box">
+							<img style="width: 80%" src='images/matt_blog_filtered.png'> 	
+					</div>
+					<div class="col-md-7 col-md-pull-5 animate-box">
+						<div class="desc">
+							<p>
+								For a human, this process is easy, but for a computer there are a number of steps that must be taken to estimate the road edges.
+							</p>
+							<p>
+								After receiving a video frame, the first step is to slightly blur the image to eliminate noise in the image. We use a method known as bilateral filtering which removes noise but preserves edges, such as the sidewalk edge and center line:
+							</p>
+							<p>
+								The top is the input image, and the bottom image has been blurred slightly. Although the lines are still sharp, the texture of the path is much smoother in the right image, which prevents false positives.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 col-md-push-7 animate-box">
+						<img src='images/matt_blog_canny.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-7 col-md-pull-5 animate-box">
+						<div class="desc">
+							<p>
+								After filtering, the next step is to find the pixels which correspond to edges in the image. We use an algorithm known as Canny edge detection for this step. After applying edge detection, we’re left with something like this
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 col-md-push-7 animate-box">
+						<img src='images/matt_blog_cropped.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-7 col-md-pull-5 animate-box">
+						<div class="desc">
+							<p>
+								Although the bounds of the road are clearly visible, we also have many lines which are not interesting to us. Specifically, the bridge above the road, and the train  on the right are irrelevant to our goal of finding the edges of the sidewalk. Since  the  camera is mounted in a fixed perspective, we have a general idea of where the edges of the sidewalk are. We can create a region of interest which looks like this and discard the lines which lie outside that region. Notice that we’ve gotten rid of a lot of the useless edges above and to the right of the pathway. </p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 col-md-push-7 animate-box">
+						<img src='images/matt_blog_hough.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-7 col-md-pull-5 animate-box">
+						<div class="desc">
+							<p>
+								Now that we have some filtered edges, we need to find which of these pixels correspond to lines using Hough transforms. This gives us a list of line segments extracted from the edge pixel image:						
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 col-md-push-7 animate-box">
+						<img src='images/matt_blog_2.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-7 col-md-pull-5 animate-box">
+						<div class="desc">
+							<p>
+								We seperate the candidate lane segments into lines which are  sloped upwards to the right and those which are sloped upwards to the left. These should correspond to line segments belonging to the left and right lane edges respectively.Using a averaging these two groups, weighted by segment length, we end up with two estimates of the lane boundaries:
+							</p>
 						</div>
 					</div>
 				</div>
