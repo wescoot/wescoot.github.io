@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Wescoot Autonomy Solutions</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<div id="colorlib-logo"><a href="index.html">WeScoot</a></div>
+						</div>
+						<div class="col-md-10 text-right menu-1">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="blog.html">Blog</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<section id="home" class="video-hero" style="height: 700px; background-image: url(images/cover_img_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+		<div class="overlay"></div>
+			<a class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=vqqt5p0q-eU',containment:'#home', showControls:false, autoPlay:true, loop:true, mute:true, startAt:0, opacity:1, quality:'default'}"></a>
+			<div class="display-t text-center">
+				<div class="display-tc">
+					<div class="container">
+						<div class="col-md-12 col-md-offset-0">
+							<div class="animate-box">
+								<h2> Camera Transformations</h2>
+								<p>Heads up, this one is alot of math</p>
+								<!-- <p><a href="gallery.html" class="btn btn-primary btn-lg btn-custom">Get premium</a></p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		 
+		<!-- PUT VIDEO HERE WHEN WE'RE DONE
+		<div class="colorlib-intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+						<h2>Our Latest Demo</h2>
+						<p> This video features our scooter performing basic path-planning on the bike path running through UW campus.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 animate-box">
+						<span class="play"><a href="vid.MOV" class="pulse popup-vimeo"><i class="icon-play3"></i></a></span>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+		<div class="colorlib-work-featured colorlib-bg-white">
+			<div class="container">
+				<div class="row mobile-wrap">
+					<div class="col-md-6 col-md-push-6 animate-box">
+						<img src='images/camera_projection_pinhole.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-6 col-md-pull-6 animate-box">
+						<div class="desc">
+							<p>
+								Although detecting lane lines in images is useful, the scooter operates in a 3D world, and not a 2D camera frame. As such, to make use of the detected lanes, we had to determine which positions in the real world correspond to the lane edge pixels. The process of mapping real world points into camera positions is known as projective geometry, as we are projecting 3D points onto the image frame.
+							</p>
+							<p>
+								For our lane detection we are using a single camera, also known as a monocular camera. The camera is represented using a pinhole model. Light rays from the scene pass through a singular point (the aperture of the camera) and are cast onto the camera sensor. The intensity of light on each pixel of the sensor determines the brightness of the image. This tree illustrates the pinhole camera model.Rays of light from the tree on the left pass through the the center of projection and are projected, inverted, onto the sensor on the right. 
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 animate-box">
+						<img src='images/camera_projection_camera_model.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-7 animate-box">
+						<div class="desc">
+							<p>
+								An equivalent model which removes the inversion is shown to the left.In this model, the real world point (x,y,z) is projected onto the image plane PP at pixel (x’,y’)
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 col-md-push-7 animate-box">
+						<img src='images/camera_projection_intrinsics.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-7 col-md-pull-5 animate-box">
+						<div class="desc">
+							<p>
+								In general, a point in the same frame of reference as the camera , (x,y,z), can be projected to pixel  using the following equation:							</p>
+							<p>
+								Here, s is a scaling factor which scales the x and y pixels. K is known as the camera matrix of dimension 3x4 which incorporates parameters of the camera such as the focal length, the width and height of the image, as well as distortion effects from the lens. We experimentally derived K through camera calibration.							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 animate-box">
+						<img src='images/camera_projection_km.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-7 animate-box">
+						<div class="desc">
+							<p>
+								To use the above equation, we need points in the same frame of reference as the camera. Unfortunately, since the camera is mounted 53 degrees off the ground and is angled forward at approximately 5 degrees, the camera frame of reference is not the same as the traditional world frame in which the origin is at height 0 and the y axis points directly upwards. Therefore, to transform real world points to pixel locations, we must first transform the points from the world frame to the camera frame by translating them up, and rotating them by -5 degrees about the x axis by using a 4x4 transformation matrix M. Our formula for projecting points in space into our image then becomes:
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<!-- <div class="col-md-5 col-md-push-7 animate-box">
+						<img src='images/camera_projection_lin_combo.png'>
+						 <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					<!-- </div>  -->
+					<div class="col-md-12 animate-box">
+						<div class="desc">
+							<p>
+								Now, after all that math we have a way to map a real world point to a pixel in an image. However, to find the points in space which correspond to lane pixels, we need to go the other way. 
+							</p>
+							<p>
+								Unfortunately, KM is a 3x4 matrix, meaning that the problem is under constrained. A given pixel (x’,y’) can correspond to an infinite number of points along the ray of light which passes through the pinhole of the camera and the pixel in the image frame. Luckily, since we know lane lines are painted on the ground, we can add the constraint y = 0 to our system. Re writing the above equation in the form of a linear combination: we get:
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-12 animate-box" style='text-align: center;'>
+						<img src='images/camera_projection_lin_combo.png'>
+					</div> 
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 animate-box">
+						<img src='images/camera_projection_inverse.png'>
+						<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+					</div>
+					<div class="col-md-7 animate-box">
+						<div class="desc">
+							<p>
+								If y is 0, we can drop the second term of the above equation, essentially dropping the second column of matrix KM. We will call this new matrix without its second column KM’ which is of size 3x3, making it invertible. Therefore, we can project our lane pixel points into the world frame using the equation
+							</p>
+						</div>
+					</div>
+				</div>
+
+		<footer id="colorlib-footer">
+			<div class="container">
+				<div class="row row-pb-md">
+					<div class="col-md-3 colorlib-widget">
+						<h4>About Wescoot</h4>
+						<p>Wescoot is a company working to develop an autonomous micromobility solution that will pave a way to profitability in the last-mile transportation industry</p>
+					</div>
+					<div class="col-md-3 colorlib-widget">
+						<h4>Information</h4>
+						<p>
+							<ul class="colorlib-footer-links">
+								<li><a href="#"><i class="icon-check"></i> Home</a></li>
+								<li><a href="#"><i class="icon-check"></i> Blog</a></li>
+							</ul>
+						</p>
+					</div>
+
+					<div class="col-md-3 colorlib-widget">
+						<h4>Recent Blog</h4>
+						<!-- <div class="f-blog">
+							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);">
+							</a>
+							<div class="desc">
+								<h2><a href="blog.html">Photoshoot Technique</a></h2>
+								<p class="admin"><span>30 March 2018</span></p>
+							</div>
+						</div>
+						<div class="f-blog">
+							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-2.jpg);">
+							</a>
+							<div class="desc">
+								<h2><a href="blog.html">Camera Lens Shoot</a></h2>
+								<p class="admin"><span>30 March 2018</span></p>
+							</div>
+						</div>
+						<div class="f-blog">
+							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-3.jpg);">
+							</a>
+							<div class="desc">
+								<h2><a href="blog.html">Imahe the biggest photography studio</a></h2>
+								<p class="admin"><span>30 March 2018</span></p>
+							</div>
+						</div> -->
+					</div>
+
+					<div class="col-md-3 colorlib-widget">
+						<h4>Contact Info</h4>
+						<ul class="colorlib-footer-links">
+							<li>200 University Ave W, <br> Waterloo, ON N2L 3G1</li>
+							<li><a href="tel://1234567920"><i class="icon-phone"></i> N/A </a></li>
+							<li><a href="mailto:info@yoursite.com"><i class="icon-envelope"></i> N/A </a></li>
+							<li><a href="index.html"><i class="icon-location4"></i> www.wescoot.github.io </a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="copy">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<p>
+								 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><br>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- YTPlayer -->
+	<script src="js/jquery.mb.YTPlayer.min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
