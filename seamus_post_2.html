@@ -80,56 +80,67 @@
 						<div class="col-md-12 col-md-offset-0">
 							<div class="animate-box">
 								<h2>Localization Update</h2>
-								<p>It's been a long road but we've finally made it!</p>
+								<p>How does the robot know where it is?
+								</p>
 								<!-- <p><a href="gallery.html" class="btn btn-primary btn-lg btn-custom">Get premium</a></p> -->
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		 
-		<!-- PUT VIDEO HERE WHEN WE'RE DONE -->
-		<div class="colorlib-intro">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2>Our Latest Demo</h2>
-						<p> This video features our scooter performing basic path-planning on the bike path running through UW campus.</p>
+		</section>		
+		<div class="colorlib-work-featured colorlib-bg-white">
+		<div class="container">
+			<div class="row mobile-wrap">
+				<!-- <div class="col-md-5 animate-box">
+					--->
+					<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+				<!-- </div> -->
+				<div class="col-md-12 animate-box">
+					<div class="desc">
+						<!-- <h2>The Challenge of Lane</h2> -->
+						<p>The scooter uses two Extended Kalman Filters, also known as EKFs to determine its spatial position. An EKF is the non-linear version of a Kalman Filter, a popular state estimation algorithm used to help fuse measurements of your surroundings, as well as the internal physics model of your robot.
+							<br></br>
+							A Kalman Filter essentially works in the same way we think about state estimation. For instance, say I see a ball on the ground, and I kick it moderately hard. My intuitive understanding of physics tells me that the ball should roll in the direction that I kicked it. My eyes then observe the position and velocity of the ball. I use both pieces of information to then make a deduction of where the ball's final resting place will be. Now what makes Kalman filters so interesting is their representation of error. Obviously I don't know the exact way the ball will roll, and my eyes aren't perfect. When I combine those two ideas (physics and observation) in your head, I have an underlying understanding of how wrong each one can be (my eyes are more accurate than my understanding of the ball or vice-versa). When I make my final decision as to where the ball will stop, I take that into consideration.
+							<br></br>
+							The scooter's EKFs work the exact same way. Using the motion model for the scooter, we can predict where the scooter should go based on how fast and what direction it is facing. Then, using sensors, we can measure the actual position and compare! This then gives us our final estimate. 
+							</p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 animate-box">
-						<span class="play"><a href="vid.MOV" class="pulse popup-vimeo"><i class="icon-play3"></i></a></span>
+			</div>
+			<div class="row mobile-wrap">
+				<div class="col-md-5 animate-box">
+					<img src='images/frames.png' width="450">
+					<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+				</div>
+				<div class="col-md-6 animate-box">
+					<div class="desc">
+						<p>Now at this point, you may be wondering why there are two EKFs? Well this has to do with the scooters coordinate systems. The robot has three main coordinate systems:
+							<br></br>
+							<ol>
+								<li> Robot Frame (base_link) is a coordinate system defined at the origin of the scooter, and stays fixed there as the scooter moves. Any reference of objects in the robot frame would be relative to the scooter's position. </li>
+								<li> Odometry Frame (odom) is a coordinate system that tracks the scooter's position relative to the starting point of the scooter. However, this coordinate system is subject to drift over time, given that it uses only relative sensors (wheel rotation counts and IMU measurements) that are subject to increased error over time. The benefits are that this coordinate system is continuous, and will have no discontinuities (jumps) in position data.</li>
+								<li> Map Frame (map)is a coordinate system that tracks the scooter's position relative to a map. This coordinate system is not continuous, as GPS is incorporated, so jumps in position are to be expected.</li>
+							</ol>
+							(http://library.isr.ist.utl.pt/docs/roswiki/hector_slam(2f)Tutorials(2f)SettingUpForYourRobot.html)
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row mobile-wrap">
+				<!-- <div class="col-md-5 animate-box">
+					--->
+					<!-- <div class="mobile-img" style="background-image: url(images/matt_blog_1.png);"></div> -->
+				<!-- </div> -->
+				<div class="col-md-12 animate-box">
+					<div class="desc">
+						<!-- <h2>The Challenge of Lane</h2> -->
+						<p>The two EKFs are meant to 1) keep track of the scooter's position in the Odometry Frame and 2) keep track of the scooter's position in the Map Frame. Both frames are important for different reasons. Since the Odometry Frame is continuous, the scooter does all of its path planning in this frame. This makes sure that no waypoints/goals are missed, since there are no jumps in position. This also makes sense given that the lane lines determine how the path is set, and the lane lines are determined relative to the scooter's current position. The Map Frame is important for final waypoint completion, since the website interface uses GPS markers to set goal points. This requires the scooter to have a sense of where it is in the Map Frame in order to determine whether a high level goal has been completed. Discontinuities are ok for this goal as well, and don't have much impact.
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="colorlib-work-featured colorlib-bg-white">
-			<div class="container">
-				<div class="row mobile-wrap">
-					<div class="col-md-5 animate-box">
-						<div class="mobile-img" style="background-image: url(images/scoot_undressed.jpg);"></div>
-					</div>
-					<div class="col-md-7 animate-box">
-						<div class="desc">
-							<h2>A final shot of the insides</h2>
-							<p>This image features the mechanical housing the protects the electronics and sensing components of the scooter</p>
-						</div>
-					</div>
-				</div>
-				<div class="row mobile-wrap">
-					<div class="col-md-5 col-md-push-7 animate-box">
-						<div class="mobile-img" style="background-image: url(images/scoot_dressed.jpg);"></div>
-					</div>
-					<div class="col-md-7 col-md-pull-5 animate-box">
-						<div class="desc">
-							<h2>A final shot of the exterior</h2>
-							<p> This image features the mechanical housing the protects the electronics and sensing components of the scooter</p>
-						</div>
-					</div>
-				</div>
 
 		<footer id="colorlib-footer">
 			<div class="container">
@@ -142,8 +153,8 @@
 						<h4>Information</h4>
 						<p>
 							<ul class="colorlib-footer-links">
-								<li><a href="#"><i class="icon-check"></i> Home</a></li>
-								<li><a href="#"><i class="icon-check"></i> Blog</a></li>
+								<li><a href="index.html"><i class="icon-check"></i> Home</a></li>
+								<li><a href="blog.html"><i class="icon-check"></i> Blog</a></li>
 							</ul>
 						</p>
 					</div>
